@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+case "$OSTYPE" in
+    linux*)  os='linux'   ;;
+    darwin*) os='osx'     ;;
+    *)       os='windows' ;;
+esac
+
+repo_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+install () {
+    if [[ "$1" == 'dir' ]]; then
+        rm -rf "$HOME/$2"
+        mkdir -p "$(dirname "$HOME/$2")"
+        ln -s "$repo_dir/$2" "$HOME/$2"
+    else
+        rm -f "$HOME/$2"
+        ln "$repo_dir/$2" "$HOME/$2"
+    fi
+    echo "Linking '$repo_dir/$2' -> '$HOME/$2'"
+}
+
+install file .bashrc
+
+if [[ "$os" == 'osx' ]]; then
+    install file .bash_profile
+fi
