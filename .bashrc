@@ -36,6 +36,11 @@ gc () {
 	git commit -m "$1"
 }
 
+gr () {
+	git fetch
+	git rebase
+}
+
 # ----- Prompt config ---------------------------------------------------------
 
 ps1_color_error () {
