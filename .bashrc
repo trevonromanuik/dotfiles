@@ -29,8 +29,8 @@ alias gd='git diff'
 alias gs='git status'
 alias gl='git log'
 alias gco='git checkout'
-alias gu='git pull'
-alias gp='git push'
+alias gpull='git pull'
+alias gpush='git push'
 
 gc () {
 	git commit -m "$1"
