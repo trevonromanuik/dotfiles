@@ -71,6 +71,11 @@ gp() {
     fi
 }
 
+gu() {
+    current_branch=$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+    git push -u origin $current_branch
+}
+
 # ----- Prompt config ---------------------------------------------------------
 
 ps1_color_error () {
