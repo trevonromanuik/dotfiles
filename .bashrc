@@ -25,10 +25,11 @@ alias cd='cdls'
 # ----- git helpers -----------------------------------------------------------
 
 alias ga='git add -A :/'
+alias gb='git branch'
 alias gd='git diff'
 alias gs='git status'
 alias gl='git log'
-alias gco='git checkout'
+alias gcp='git cherry-pick'
 alias gpull='git pull'
 alias gpush='git push'
 
@@ -39,6 +40,12 @@ gc () {
 gr () {
     git fetch
     git rebase
+    git submodule update
+}
+
+gco () {
+    git checkout $1
+    git submodule update
 }
 
 gp() {
